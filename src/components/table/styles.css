@@ -18,7 +18,7 @@
 }
 
 @media only screen and (max-width: 714px) {
-    .download-buttons img{
+    .download-buttons{
         width: 100% !important;
     }
 }
