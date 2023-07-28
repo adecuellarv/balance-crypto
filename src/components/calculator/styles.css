@@ -8,5 +8,22 @@
     width: 60px;
 }
 .header-div-coin{
-    text-align: center;
+    text-align: left;
+}
+.header-div-coin .price-dolar{
+    color: #6363ff;
+}
+.header-div-coin .label-small{
+  font-size: 14px !important;
+}
+.h4-numbers{
+    width: 150px;
+    overflow-x: scroll;
+}
+
+@media only screen and (max-width: 714px) {
+    .h4-numbers{
+        width: 100% !important;
+        overflow-x: inherit !important;
+    }
 }
