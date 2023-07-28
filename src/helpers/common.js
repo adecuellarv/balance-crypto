@@ -1,3 +1,5 @@
+import { utils, writeFile } from "xlsx";
+
 const roiList = [
     {
         slug: 'bitcoin',
@@ -55,4 +57,11 @@ export const currencyFormat = (number) => {
 
     const dollarString = new Intl.NumberFormat("en-US", formatting_options);
     return dollarString.format(number);
+}
+
+export const jsonToFile = (filename, data, type) => {
+    const workbook = utils.book_new();
+    const dataSheet = utils.json_to_sheet(data);
+    utils.book_append_sheet(workbook, dataSheet);
+    writeFile(workbook, `${filename}.${type}`);
 }

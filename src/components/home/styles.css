@@ -13,3 +13,9 @@
 .logo{
   width: 200px;
 }
+.loading-div{
+  text-align: center;
+}
+.loading-div h1{
+  color: #fff;
+}

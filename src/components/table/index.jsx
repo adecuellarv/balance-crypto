@@ -1,18 +1,79 @@
 import React from "react";
 import { Table } from 'react-bootstrap';
-import { currencyFormat } from "../../helpers/common";
+import { currencyFormat, jsonToFile } from "../../helpers/common";
 import bitcoin from "../calculator/img/bitcoin.png";
 import cardano from "../calculator/img/cardano.png";
 import ethereum from "../calculator/img/ethereum.png";
+import jsonimg from "./img/json.png";
+import excelimg from "./img/excel.png";
 import "./styles.css";
 
 const TableCrypto = ({ coinsInfo }) => {
+
+    const downloadFile = (type) => {
+        const data = [];
+        coinsInfo.map(item => {
+            const obj = {
+                asset: item.name,
+                Price_USD: currencyFormat(item?.market_data?.price_usd),
+                Change_vs_USD_1H: currencyFormat(item?.market_data?.percent_change_usd_last_1_hour),
+                Change_vs_USD_24H: currencyFormat(item?.market_data?.percent_change_usd_last_24_hours),
+                MarketCap: item?.marketcap?.current_marketcap_usd,
+                Real_Volume_24H: currencyFormat(item?.market_data?.real_volume_last_24_hours),
+                Change_vs_USD_7D: currencyFormat(item?.roi_data?.percent_change_last_1_week),
+                Change_vs_USD_30D: currencyFormat(item?.roi_data?.percent_change_last_1_month),
+                Change_vs_USD_YTD: currencyFormat(item?.roi_data?.percent_change_last_1_year)
+            }
+            data.push(obj);
+        })
+
+        jsonToFile('Table-crypto', data, type);
+    }
+
+    const jsonFileDownload = () => {
+        const json_data = [];
+        coinsInfo.map(item => {
+            const obj = {
+                asset: item.name,
+                Price_USD: currencyFormat(item?.market_data?.price_usd),
+                Change_vs_USD_1H: currencyFormat(item?.market_data?.percent_change_usd_last_1_hour),
+                Change_vs_USD_24H: currencyFormat(item?.market_data?.percent_change_usd_last_24_hours),
+                MarketCap: item?.marketcap?.current_marketcap_usd,
+                Real_Volume_24H: currencyFormat(item?.market_data?.real_volume_last_24_hours),
+                Change_vs_USD_7D: currencyFormat(item?.roi_data?.percent_change_last_1_week),
+                Change_vs_USD_30D: currencyFormat(item?.roi_data?.percent_change_last_1_month),
+                Change_vs_USD_YTD: currencyFormat(item?.roi_data?.percent_change_last_1_year)
+            }
+            json_data.push(obj);
+        })
+        const fileName = "Cryto.json";
+        const data = new Blob([JSON.stringify(json_data)], { type: "text/json" });
+        const jsonURL = window.URL.createObjectURL(data);
+        const link = document.createElement("a");
+        document.body.appendChild(link);
+        link.href = jsonURL;
+        link.setAttribute("download", fileName);
+        link.click();
+        document.body.removeChild(link);
+      };
 
     return (
         <>
             <div className="card-effect">
                 <div>
                     <h4>Assets</h4>
+                    <div className="download-buttons">
+                        <img
+                            src={jsonimg}
+                            alt="jsonimg"
+                            onClick={() => jsonFileDownload()}
+                        />
+                        <img
+                            src={excelimg}
+                            alt="excelimg"
+                            onClick={() => downloadFile('xlsx')}
+                        />
+                    </div>
                     <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>

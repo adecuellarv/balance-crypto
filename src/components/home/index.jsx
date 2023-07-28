@@ -16,24 +16,25 @@ const Home = () => {
         socket.on('data', (data) => {
             if (data.length) {
                 setCoinsInfo(data);
-                setTimeout(() => {
-                    //socket.emit('response', true);
-                }, 10000);
             }
         })
     }, []);
 
     return (
         <div className="home-page">
-            <Container>
-                <img className="logo" src={logo} alt="logo" />
-                <Calculator
-                    coinsInfo={coinsInfo}
-                />
-                <TableCrypto
-                    coinsInfo={coinsInfo}
-                />
-            </Container>
+            {!!coinsInfo.length ?
+                <Container>
+                    <img className="logo" src={logo} alt="logo" />
+                    <Calculator
+                        coinsInfo={coinsInfo}
+                    />
+                    <TableCrypto
+                        coinsInfo={coinsInfo}
+                    />
+                </Container>
+                : <div className="loading-div">
+                    <h1>Cargando...</h1>
+                </div>}
         </div>
     )
 };

@@ -1,3 +1,24 @@
 .img-table{
     width: 20px;
 }
+.download-buttons{
+    margin-bottom: 10px;
+    width: 10%;
+    float: right;
+    background: #ffffff;
+    padding: 10px;
+    box-shadow: -1px 0px 21px -3px #a1a0a0;
+    border-radius: 10px;
+}
+.download-buttons img{
+    width: 40px;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 714px) {
+    .download-buttons img{
+        width: 100% !important;
+    }
+}

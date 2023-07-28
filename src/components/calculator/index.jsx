@@ -8,7 +8,6 @@ import ethereum from "./img/ethereum.png";
 
 const Calculator = ({ coinsInfo }) => {
     const [value, setValue] = useState(0);
-    console.log(coinsInfo)
     return (
         <div className="calculator">
             <Row>
