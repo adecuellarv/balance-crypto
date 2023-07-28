@@ -1,0 +1,15 @@
+.home-page{
+    background: linear-gradient(
+      147deg,
+      rgba(61, 42, 44, 1) 0%,
+      rgba(26, 28, 30, 1) 18%,
+      rgba(62, 43, 74, 1) 91%,
+      rgba(61, 42, 44, 1) 100%
+    );
+  background-blend-mode: normal;
+  min-height: 100vh;
+  padding: 30px;
+}
+.logo{
+  width: 200px;
+}

@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Fira Sans Condensed', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +8,50 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.card-effect{
+  padding: 25px 20px 30px 20px;
+  box-shadow: 10px 10px 21px -3px #2a3138;
+  border-radius: 11px;
+  background-color: #262a30;
+}
+.card-effect h4{
+  font-weight: 700;
+  color: #fff;
+}
+
+.card-effect label{
+  color: #878787;
+  font-size: 18px;
+}
+
+.card-effect h4 span{
+  color: #878787;
+  font-size: 22px;
+}
+
+.card-effect input{
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 10px;
+  border: 0px;
+  background: #cad9fa;
+  font-size: 22px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+.card-effect span{
+  color: #cad9fa;
+  font-size: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input:focus-visible, input:focus{
+  outline: none;
 }
