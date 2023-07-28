@@ -18,24 +18,30 @@ export const calculate = (inv, roi) => {
 }
 
 export const calculateGain = (info, inv) => {
-    if (info?.Asset) {
-        const filterROI = roiList.filter(i => i.slug === info.Asset.slug);
+    if (info?.slug) {
+        const filterROI = roiList.filter(i => i.slug === info.slug);
         return calculate(inv, filterROI[0].roi);
     }
 }
 
 export const calculateDollarBaseOnROI = (info) => {
-    if (info?.Asset) {
-        const filterROI = roiList.filter(i => i.slug === info.Asset.slug);
+    if (info?.slug) {
+        const filterROI = roiList.filter(i => i.slug === info.slug);
         const roianual = filterROI[0].roi * 12;
         const total = roianual * info.market_data?.price_usd;
         return  info.market_data?.price_usd + total;
     }
 }
 
+export const calculateFromDollarToCoin = (info) => {
+    if (info?.slug) {
+        
+    }
+}
+
 export const getRoi = (info) => {
-    if (info?.Asset) {
-        const filterROI = roiList.filter(i => i.slug === info.Asset.slug);
+    if (info?.slug) {
+        const filterROI = roiList.filter(i => i.slug === info.slug);
         return filterROI[0].roi;
     }
 }

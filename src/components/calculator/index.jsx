@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { calculateGain, getRoi, currencyFormat, calculateDollarBaseOnROI } from "../../helpers/common";
 import "./styles.css";
 import bitcoin from "./img/bitcoin.png";
@@ -35,16 +35,19 @@ const Calculator = ({ coinsInfo }) => {
                             !!coinsInfo.length && coinsInfo.map((item, key) => {
                                 return (
                                     <Col xxs={12} md={4} lg={4} key={key}>
-                                        <div className="card-effect">
+                                        <div className="card-effect exchange-cards">
                                             <div className="header-div-coin">
                                                 <Row>
                                                     <Col xxs={12} md={6} lg={6}>
-                                                        <img className="img-coin" src={
-                                                            item.Asset.slug === "bitcoin" ? bitcoin
-                                                                : item.Asset.slug === "ethereum" ? ethereum
-                                                                    : cardano
-                                                        } />
-                                                        <h4>{item.Asset.name}</h4>
+                                                        <img className="img-coin"
+                                                            src={
+                                                                item.slug === "bitcoin" ? bitcoin
+                                                                    : item.slug === "ethereum" ? ethereum
+                                                                        : cardano
+                                                            }
+                                                            alt={item.slug}
+                                                        />
+                                                        <h4>{item.name}</h4>
                                                     </Col>
                                                     <Col xxs={12} md={6} lg={6}>
                                                         <div>

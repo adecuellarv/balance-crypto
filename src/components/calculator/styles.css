@@ -1,11 +1,12 @@
 .calculator{
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 .calulator-form{
     margin-bottom: 30px;
 }
 .img-coin{
-    width: 60px;
+    width: 50px;
 }
 .header-div-coin{
     text-align: left;
@@ -19,6 +20,9 @@
 .h4-numbers{
     width: 150px;
     overflow-x: scroll;
+}
+.calculator .exchange-cards h4{
+    font-size: 18px !important;
 }
 
 @media only screen and (max-width: 714px) {

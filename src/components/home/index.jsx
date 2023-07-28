@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { io } from 'socket.io-client';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Calculator from "../calculator";
+import TableCrypto from "../table";
 import logo from "./img/logo.svg";
 import "./styles.css";
 
@@ -22,13 +23,14 @@ const Home = () => {
         })
     }, []);
 
-    console.log(coinsInfo);
-
     return (
         <div className="home-page">
             <Container>
-                <img className="logo" src={logo} />
+                <img className="logo" src={logo} alt="logo" />
                 <Calculator
+                    coinsInfo={coinsInfo}
+                />
+                <TableCrypto
                     coinsInfo={coinsInfo}
                 />
             </Container>
