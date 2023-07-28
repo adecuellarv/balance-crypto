@@ -78,14 +78,14 @@ const TableCrypto = ({ coinsInfo }) => {
                                             />
                                             {item?.name}
                                         </td>
-                                        <td>{currencyFormat(item?.market_data?.price_usd)}</td>
-                                        <td>{currencyFormat(item?.market_data?.percent_change_usd_last_1_hour)}</td>
-                                        <td>{currencyFormat(item?.market_data?.percent_change_usd_last_24_hours)}</td>
-                                        <td>{item?.marketcap?.current_marketcap_usd}</td>
-                                        <td>{currencyFormat(item?.market_data?.real_volume_last_24_hours)}</td>
-                                        <td>{currencyFormat(item?.roi_data?.percent_change_last_1_week)}</td>
-                                        <td>{currencyFormat(item?.roi_data?.percent_change_last_1_month)}</td>
-                                        <td>{currencyFormat(item?.roi_data?.percent_change_last_1_year)}</td>
+                                        <td>{currencyFormat(item?.metrics?.market_data?.price_usd)}</td>
+                                        <td>{currencyFormat(item?.metrics?.market_data?.percent_change_usd_last_1_hour)}</td>
+                                        <td>{currencyFormat(item?.metrics?.market_data?.percent_change_usd_last_24_hours)}</td>
+                                        <td>{item?.metrics?.marketcap?.current_marketcap_usd}</td>
+                                        <td>{currencyFormat(item?.metrics.market_data?.real_volume_last_24_hours)}</td>
+                                        <td>{currencyFormat(item?.metrics?.roi_data?.percent_change_last_1_week)}</td>
+                                        <td>{currencyFormat(item?.metrics?.roi_data?.percent_change_last_1_month)}</td>
+                                        <td>{currencyFormat(item?.metrics?.roi_data?.percent_change_last_1_year)}</td>
                                     </tr>
                                 )
                             })}

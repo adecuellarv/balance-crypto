@@ -51,7 +51,7 @@ const Calculator = ({ coinsInfo }) => {
                                                     <Col xxs={12} md={6} lg={6}>
                                                         <div>
                                                             <label className="label-small">Precio actual en dolar</label>
-                                                            <h5 className="price-dolar">{currencyFormat(item?.market_data?.price_usd)} <span>USD</span></h5>
+                                                            <h5 className="price-dolar">{currencyFormat(item?.metrics.market_data?.price_usd)} <span>USD</span></h5>
                                                         </div>
                                                         <div>
                                                             <label className="label-small">Precio proyectado en 12 meses</label>
