@@ -1,7 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { getAsset } from './services/messari';
+import { useEffect } from 'react';
+import { io } from 'socket.io-client';
+const socket = io("http://localhost:8080");
+
 
 function App() {
+  
+  const handleSubmit = () => {
+    socket.emit('message', 'Holiii');
+  }
+
+  useEffect(() => {
+
+    socket.on('data', (data) => {
+      console.log(data);
+    })
+  }, []);
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +27,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={handleSubmit}>Enviar</button>
       </header>
     </div>
   );
